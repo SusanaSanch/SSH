@@ -1,4 +1,4 @@
-package patologiasvisuales;
+package patologiasvisualessusana;
 
 public class Patologia {
 	

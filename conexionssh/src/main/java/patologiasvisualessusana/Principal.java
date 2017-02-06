@@ -1,4 +1,4 @@
-package patologiasvisuales;
+package patologiasvisualessusana;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
