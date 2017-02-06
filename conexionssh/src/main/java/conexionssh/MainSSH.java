@@ -91,6 +91,7 @@ public class MainSSH {
 					break;
 			}
 				
+			
 				//rset = stmt.executeQuery("SELECT des_sint FROM Sintomas where id_sint = 1");
 				
 		}
