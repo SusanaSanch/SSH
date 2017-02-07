@@ -1,11 +1,9 @@
-package patologiasvisualessusana;
+package proyectopatologias;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.List;
 
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
@@ -46,27 +44,14 @@ public class Principal {
 		sesion.disconnect();
 	}
 
-	
-	
-	public static Patologia buscarPatologiaID(int id, List<Patologia> lista)
-	{
-		Patologia pato = null;
-		int i = 0;
-		do
-		{
-			pato = lista.get(i);
-			i++;
-		}
-		while(pato.getId() != id);
-		
-		return pato;
-	}
 	public static void main(String[] args) throws Throwable {
 		
 		
 		Connection conn = null;
 		ResultSet rset = null;
 		Statement stmt = null;
+		
+		int id = 0;
 		
 		try
 		{
@@ -78,34 +63,19 @@ public class Principal {
   	        stmt = conn.createStatement();
   	        
   	        
-  	      List<Patologia> lista_patologias = null;
-  	      List<Sintoma> lista_sintomas = null;
-  	      lista_patologias = Consultas.listarPatologias(stmt, conn);
-  	      HashMap<Patologia, List<Sintoma>> hm = new HashMap<Patologia, List<Sintoma>>();
-  	      
-//  	      for (Patologia patologia : lista_patologias)
-//	  	      {
-//				lista_sintomas = Consultas.buscarSintomasPorPatologia(stmt, conn, patologia.getId());
-//	 	    	hm.put(patologia, lista_sintomas);
-//	 	    	System.out.println(patologia+" = "+hm.get(patologia));
-//	  	      }
-  	      
-  	      
-  	      
-  	      int id = 0;
-  	      id = 9;
-  	      Patologia pato = null;
+  	        PatologiaDTO pato = null;
   	        
-  	      long tiempo_inicial = System.currentTimeMillis();
-  	      
-  	      pato = buscarPatologiaID(id, lista_patologias);
-  	      
-  	      System.out.println(pato.getNombre());
-	        
-	      long tiempo_final = System.currentTimeMillis();
-	      double milisegundos = (tiempo_final - tiempo_inicial);
-	      System.out.println("Tardó " + milisegundos + " milisegundos");
-  	      
+  	        id = 9;
+  	        
+  	        long tiempo_inicial = System.currentTimeMillis();
+  	        
+  	        pato = proyectopatologias.Consultas.buscarPatologiaID(id, conn, stmt, rset);
+  
+  	        System.out.println(pato.getNombre());
+  	        
+  	        long tiempo_final = System.currentTimeMillis();
+  	        double milisegundos = (tiempo_final - tiempo_inicial);
+  	        System.out.println("Tardó " + milisegundos + " milisegundos");
 			
 		}
 		catch(Exception e)
@@ -122,5 +92,11 @@ public class Principal {
 
 		
 	}
+
+
+	
+	
+	
+	
 
 }
