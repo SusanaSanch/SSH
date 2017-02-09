@@ -1,11 +1,11 @@
 package proyectopatologias;
 
-public class Sintoma {
+public class SintomaDTO {
 
 	private int id;
 	private String descripcion;
 	
-	public Sintoma(int id, String descripcion) {
+	public SintomaDTO(int id, String descripcion) {
 		this.id = id;
 		this.descripcion = descripcion;
 	}

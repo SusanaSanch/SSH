@@ -21,13 +21,13 @@ public class PatologiaDAO {
 		return patologia;
 	}
 	
-	public static List<Sintoma> buscarSintomasPatologiaID (int id, Connection conn) throws SQLException
+	public static List<SintomaDTO> buscarSintomasPatologiaID (int id, Connection conn) throws SQLException
 	{
-		List<Sintoma> lista_sintomas = new ArrayList<Sintoma>();
+		List<SintomaDTO> lista_sintomas = new ArrayList<SintomaDTO>();
 		
 		String descripcion_sintoma = null;
 		int id_sintoma = 0;
-		Sintoma sintoma = null;
+		SintomaDTO sintoma = null;
 		ResultSet rset2 = null;
 		Statement stmt2 = null;
 		stmt2 = conn.createStatement();
@@ -36,7 +36,7 @@ public class PatologiaDAO {
 	    {
 			id_sintoma = rset2.getInt(1);
 			descripcion_sintoma = rset2.getString(2);
-			sintoma = new Sintoma(id_sintoma, descripcion_sintoma);
+			sintoma = new SintomaDTO(id_sintoma, descripcion_sintoma);
 			lista_sintomas.add(sintoma);
 		}
 		
