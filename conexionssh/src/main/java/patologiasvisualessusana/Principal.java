@@ -36,7 +36,7 @@ public class Principal {
         sesion.connect(); //ssh connection established!
 
         //by security policy, you must connect through a fowarded port          
-        sesion.setPortForwardingL(LOCAl_PORT, MYSQL_REMOTE_SERVER, REMOTE_PORT); 
+        sesion.setPortForwardingL(LOCAl_PORT, MYSQL_REMOTE_SERVER, REMOTE_PORT);
 
 
 	}
