@@ -83,12 +83,12 @@ public class Principal {
   	      lista_patologias = Consultas.listarPatologias(stmt, conn);
   	      HashMap<Patologia, List<Sintoma>> hm = new HashMap<Patologia, List<Sintoma>>();
   	      
-//  	      for (Patologia patologia : lista_patologias)
-//	  	      {
-//				lista_sintomas = Consultas.buscarSintomasPorPatologia(stmt, conn, patologia.getId());
-//	 	    	hm.put(patologia, lista_sintomas);
-//	 	    	System.out.println(patologia+" = "+hm.get(patologia));
-//	  	      }
+  	      for (Patologia patologia : lista_patologias)
+	  	      {
+				lista_sintomas = Consultas.buscarSintomasPorPatologia(stmt, conn, patologia.getId());
+	 	    	hm.put(patologia, lista_sintomas);
+	 	    	System.out.println(patologia+" = "+hm.get(patologia));
+	  	      }
   	      
   	      
   	      
